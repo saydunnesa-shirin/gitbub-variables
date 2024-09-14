@@ -4,14 +4,14 @@ on:
     branches:
       - main
       - dev
-env: 
+env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
-    env: 
+    env:
       MONGODB_CLUSTER_ADDRESS: cluster0.nsdng.mongodb.net
-      MONGODB_USERNAME: saydunnesa-shirin
-      MONGODB_PASSWORD: nPb5ga4sHr0R9fd9
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
@@ -36,6 +36,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
+        run: |
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME}}"
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
