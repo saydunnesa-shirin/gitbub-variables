@@ -50,6 +50,7 @@ jobs:
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME}}"
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
   report:
+    needs: [test, deploy]
     if: failure()
     runs-on: ubuntu-latest
     steps:
