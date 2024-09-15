@@ -30,8 +30,10 @@ jobs:
       - name: Run server
         run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
+        id: run-tests
         run: npm test
       - name: Upload test report
+        if: steps.run-tests.outcome == 'failure'
         uses: actions/upload-artifact@v3
         with:
           name: test-report
