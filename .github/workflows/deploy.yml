@@ -38,9 +38,9 @@ jobs:
         with:
           name: test-report
           path: test.json
-      - name: Output information
-        run: |
-          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME}}"
+      # - name: Output information
+      #   run: |
+      #     echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME}}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
