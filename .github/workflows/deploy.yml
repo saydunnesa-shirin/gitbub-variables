@@ -31,6 +31,11 @@ jobs:
         run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
         run: npm test
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: test.json
       - name: Output information
         run: |
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME}}"
