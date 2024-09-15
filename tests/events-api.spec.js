@@ -20,6 +20,6 @@ test('getting events', async ({ request }) => {
   expect(response.ok()).toBeTruthy();
   const resDataRaw = await response.body();
   const resData = JSON.parse(resDataRaw.toString());
-  expect(resData).toHaveProperty('events');
+  expect(resData).toHaveProperty('event');
   expect(resData.events.length).toBeGreaterThan(0);
 });
